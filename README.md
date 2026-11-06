@@ -86,7 +86,7 @@ README.md                это описание
 | --- | --- | --- |
 | 1 | `arxiv-search` | Ищет новые статьи на arXiv по темам из `data/topics.json`, пропуская `id`, которые уже есть в архиве. В `category` пишет название темы. |
 | 2 | `paper-ru-summary` | Переводит заголовки и аннотации на русский (`title_ru`, `desc_ru`). |
-| 3 | `archive-update` | Скриптом `scripts/add_papers.py` добавляет записи в `data/publications.json`, обновляет `data/stats.json`, затем коммитит и пушит. |
+| 3 | `archive-update` | Скриптом `scripts/add_papers.py` добавляет записи в `data/publications.json`, обновляет `data/stats.json`, затем коммитит и пушит в `main`. |
 | 4 | `telegram-notify` | Скриптом `scripts/send_papers.py` отправляет подборку в Telegram. Нужны переменные `TG_BOT_TOKEN` и `CHAT_ID`. |
 
 Проверить, что добавится в архив, не меняя файлы:

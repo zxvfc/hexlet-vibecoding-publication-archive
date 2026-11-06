@@ -70,15 +70,25 @@ python3 .agents/skills/archive-update/scripts/add_papers.py new.json
 - увеличивает `scans` на 1 и ставит `lastScan` на текущее время UTC в `data/stats.json`, даже если новых записей нет;
 - не записывает ничего, если хотя бы одна запись с ошибкой.
 
-## Шаг 4. Закоммить и запушь
+## Шаг 4. Закоммить и запушь в `main`
+
+Изменения отправляются только в ветку `main`. Перед шагом 1 убедись, что ты на ней и она актуальна:
+
+```bash
+git checkout main
+git pull --ff-only origin main
+```
+
+После записи:
 
 ```bash
 git add data/publications.json data/stats.json
 git commit -m "Archive update: <N> new publications"
-git push
+git push origin main
 ```
 
-Пушь в рабочую ветку сессии.
+- Не создавай другие ветки, не пушь в них и не открывай pull request. Не используй `--force`.
+- Если push отклонён из-за новых коммитов на `origin`, выполни `git pull --rebase origin main` и повтори push. Если и это не помогло, сообщи об ошибке.
 
 ## Шаг 5. Сообщи результат
 
