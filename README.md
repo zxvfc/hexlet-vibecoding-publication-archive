@@ -28,6 +28,7 @@ data/topics.json         темы по умолчанию
 data/stats.json          статистика сканирований
 .agents/skills/          скиллы для пополнения архива
 .claude/skills           ссылка на .agents/skills для Claude Code
+AGENTS.md                инструкции для агентов (CLAUDE.md — ссылка на него)
 README.md                это описание
 ```
 
