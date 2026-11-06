@@ -26,6 +26,7 @@ index.html               веб-страница архива
 data/publications.json   публикации
 data/topics.json         темы по умолчанию
 data/stats.json          статистика сканирований
+.claude/skills/          скиллы для пополнения архива
 README.md                это описание
 ```
 
@@ -77,7 +78,17 @@ README.md                это описание
 
 ## Как пополняется архив
 
-1. Поиск новых статей на arXiv по темам.
-2. Перевод заголовков и аннотаций на русский язык.
-3. Добавление записей в `data/publications.json` и обновление `data/stats.json`.
-4. Уведомление о новых публикациях в Telegram.
+Архив пополняется скиллами Claude из `.claude/skills/`. Они запускаются по очереди:
+
+| Шаг | Скилл | Что делает |
+| --- | --- | --- |
+| 1 | `arxiv-search` | Ищет новые статьи на arXiv по темам из `data/topics.json`, пропуская `id`, которые уже есть в архиве. В `category` пишет название темы. |
+| 2 | `paper-ru-summary` | Переводит заголовки и аннотации на русский (`title_ru`, `desc_ru`). |
+| 3 | `archive-update` | Скриптом `scripts/add_papers.py` добавляет записи в `data/publications.json`, обновляет `data/stats.json`, затем коммитит и пушит. |
+| 4 | `telegram-notify` | Скриптом `scripts/send_papers.py` отправляет подборку в Telegram. Нужны переменные `TG_BOT_TOKEN` и `CHAT_ID`. |
+
+Проверить, что добавится в архив, не меняя файлы:
+
+```bash
+python3 .claude/skills/archive-update/scripts/add_papers.py new.json --dry-run
+```
