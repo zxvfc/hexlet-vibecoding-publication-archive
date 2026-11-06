@@ -41,7 +41,7 @@ JSON-массив добавленных записей (те же, что пе�
 Из корня репозитория:
 
 ```bash
-python3 .claude/skills/telegram-notify/scripts/send_papers.py papers.json --dry-run
+python3 .agents/skills/telegram-notify/scripts/send_papers.py papers.json --dry-run
 ```
 
 Скрипт только печатает то, что будет отправлено. Убедись, что все записи на месте и текст выглядит нормально.
@@ -49,7 +49,7 @@ python3 .claude/skills/telegram-notify/scripts/send_papers.py papers.json --dry-
 ## Шаг 3. Отправь
 
 ```bash
-python3 .claude/skills/telegram-notify/scripts/send_papers.py papers.json
+python3 .agents/skills/telegram-notify/scripts/send_papers.py papers.json
 ```
 
 Скрипт:

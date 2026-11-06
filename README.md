@@ -26,7 +26,8 @@ index.html               веб-страница архива
 data/publications.json   публикации
 data/topics.json         темы по умолчанию
 data/stats.json          статистика сканирований
-.claude/skills/          скиллы для пополнения архива
+.agents/skills/          скиллы для пополнения архива
+.claude/skills           ссылка на .agents/skills для Claude Code
 README.md                это описание
 ```
 
@@ -78,7 +79,7 @@ README.md                это описание
 
 ## Как пополняется архив
 
-Архив пополняется скиллами Claude из `.claude/skills/`. Они запускаются по очереди:
+Архив пополняется скиллами из `.agents/skills/` — общей папки, которую читают разные агенты. Для Claude Code `.claude/skills` — символическая ссылка на неё. Они запускаются по очереди:
 
 | Шаг | Скилл | Что делает |
 | --- | --- | --- |
@@ -90,5 +91,5 @@ README.md                это описание
 Проверить, что добавится в архив, не меняя файлы:
 
 ```bash
-python3 .claude/skills/archive-update/scripts/add_papers.py new.json --dry-run
+python3 .agents/skills/archive-update/scripts/add_papers.py new.json --dry-run
 ```

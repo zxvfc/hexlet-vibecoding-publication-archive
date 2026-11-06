@@ -45,7 +45,7 @@ JSON-массив записей (выход paper-ru-summary):
 Из корня репозитория:
 
 ```bash
-python3 .claude/skills/archive-update/scripts/add_papers.py new.json --dry-run
+python3 .agents/skills/archive-update/scripts/add_papers.py new.json --dry-run
 ```
 
 Скрипт ничего не записывает и печатает, сколько записей будет добавлено, сколько пропущено как дубликаты и какие записи с ошибками. Если есть ошибки, исправь входные записи и повтори проверку.
@@ -59,7 +59,7 @@ python3 .claude/skills/archive-update/scripts/add_papers.py new.json --dry-run
 ## Шаг 3. Запиши
 
 ```bash
-python3 .claude/skills/archive-update/scripts/add_papers.py new.json
+python3 .agents/skills/archive-update/scripts/add_papers.py new.json
 ```
 
 Скрипт:
